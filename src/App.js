@@ -1,24 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+// built in & packages
+// import { useState } from 'react';
+import { Switch, Route } from "react-router-dom";
+import Particles from 'react-particles-js';
+// components
+import Navigation from './components/navigation/Navigation';
+// pages
+import SearchPage from './components/pages/SearchPage'
+// styles
+import './styles/styles.css';
+
+const particles = {
+  particles: {
+    line_linked: {
+      shadow: {
+        enable: true,
+        color: "#3ca9d1",
+        blur: 5
+      }
+    }
+  }
+}
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Particles params={particles} className="particles"/>
+      <Navigation />
+      <div className="container">
+        <Switch>
+          <Route path="/spells">
+            <SearchPage category="spells" />
+          </Route>
+          <Route path="/monsters">
+            <SearchPage category="monsters" />
+          </Route>
+          <Route path="/">
+              <div>box</div>
+          </Route>
+        </Switch>
+      </div>
+      {/* <div className="container-2">
+      <Switch>
+          <Route path="/spells">
+            <SearchPage category="spells" />
+          </Route>
+          <Route path="/monsters">
+            <SearchPage category="monsters" />
+          </Route>
+          <Route path="/">
+            
+          </Route>
+        </Switch>
+      </div> */}
+    </>
   );
 }
 

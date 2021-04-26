@@ -1,0 +1,39 @@
+$first-color: blue;
+$hover-color: antiquewhite;
+
+/* Navigation Bar */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.main-nav {
+    display: flex;
+    list-style: none;
+    font-size: 1em;
+    margin: 0;
+    height: 100%;
+    background: $first-color;
+}
+
+@media only screen and (max-width: 600px) {
+    .main-nav {
+        font-size: 0.75rem;
+        padding: 0;
+    }
+}
+
+.push {
+    margin-left: auto;
+}
+
+.main-nav > li {
+    padding: 1.25rem;
+}
+
+.main-nav > li > a:hover {
+    font-weight: bold;
+    cursor: pointer;
+    color: $hover-color;
+}
